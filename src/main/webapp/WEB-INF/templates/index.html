@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="/static/code.jquery.com_jquery-3.7.0.min.js"></script>
+<body>
+  <button id="btn" onclick="myFunction()" >
+      <h6>成功测试</h6>
+  </button>
+<div id = "myDiv"> </div>
+  <script type="text/javascript">
+
+      function myFunction(){
+            var date = {id:"管理员",value:"123456"}
+          // var category={"name":"James","id":"001"};
+          var jsonData = JSON.stringify(date);
+
+          $.ajax({
+              //${pageContext.request.contextPath}用于取后端方法的绝对路径的项目名
+              url: "/login/ajax/pos",
+              type: "post",
+              data:jsonData, //必须是字符串格式
+              contentType:"application/json;charset=UTF-8", //指定内容格式
+              dataType:"json",
+              success: function(data) {  //括号里的data是服务器返回的数据
+                  alert("Hello World!");
+                  console.log(data);
+
+              }
+          });
+      }
+  </script>
+
+</body>
+</html>
